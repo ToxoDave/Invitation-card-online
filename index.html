@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Սուրբ Մկրտություն | Բալույանց Մոնիկա</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Armenian:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Кнопка музыки -->
+        <button id="music-toggle" class="music-btn">🎵</button>
+        <audio id="bg-music" loop>
+            <source src="piano.mp3" type="audio/mpeg">
+        </audio>
+
+        <!-- 1. Главный блок (появляется первым) -->
+        <header class="hero animate delay-1">
+            <div class="hero-group">
+                <img src="good-person.png" alt="Angel" class="angel angel-left">
+                <div class="photo-frame">
+                    <img src="monika.jpg" alt="Բալույանց Մոնիկա">
+                </div>
+                <img src="good-person.png" alt="Angel" class="angel angel-right">
+            </div>
+            
+            <p class="subtitle">Սուրբ Մկրտություն</p>
+            <h1 class="title">Բալույանց Մոնիկա</h1>
+            <p class="description">
+                Սիրելի բարեկամներ և ընկերներ, սիրով հրավիրում ենք Ձեզ այս լուսավոր օրը՝ Մոնիկայի Սուրբ Մկրտության արարողությունը մեզ հետ կիսելու:
+            </p>
+        </header>
+
+        <!-- 2. Календарь (появляется вторым) -->
+        <section class="calendar-section animate delay-2">
+            <h2>Սեպտեմբեր 2026</h2>
+            <div class="calendar-grid">
+                <div class="day-name">Երկ</div>
+                <div class="day-name">Երք</div>
+                <div class="day-name">Չրք</div>
+                <div class="day-name">Հնգ</div>
+                <div class="day-name">Ուրբ</div>
+                <div class="day-name">Շբթ</div>
+                <div class="day-name">Կիր</div>
+                
+                <div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
+                <div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div>
+                <div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div>
+                <div>21</div><div>22</div><div>23</div><div>24</div><div>25</div>
+                
+                <div class="active-day-heart">
+    <svg viewBox="0 0 24 24" class="heart-icon">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+    </svg>
+    <span>26</span>
+</div>
+                
+                <div>27</div>
+                <div>28</div><div>29</div><div>30</div>
+            </div>
+            
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=%D5%8D%D5%B8%D5%B2%D5%BF%D5%A2+%D5%84%D5%AF%D5%80%D5%BF%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6+%D5%82%D5%A1%D5%AC%D5%B8%D6%82%D5%B5%D5%A1%D5%B6%D6%81+%D5%84%D5%B8%D5%B6%D5%AB%D5%AF%D5%A1&dates=20260926T080000Z/20260926T180000Z" target="_blank" class="cal-btn">
+                📅 Ավելացնել Օրացույցում
+            </a>
+        </section>
+
+        <!-- 3 & 4. Локации (появляются по очереди) -->
+        <section class="details">
+            <div class="card animate delay-3">
+                <h3>⛪ Սուրբ Մկրտություն</h3>
+                <p class="time">⏰ Ժամը՝ 12:00</p>
+                <p>📍 Գեղարդի վանք</p>
+                <img src="geghard.jpg" alt="Church Icon" class="icon">
+            </div>
+            <div class="card animate delay-4">
+                <h3>🍽️ Հանդիսություն</h3>
+                <p class="time">⏰ Ժամը՝ 18:00</p>
+                <p>📍 Odessa ռեստորանային համալիր</p>
+                <img src="odessa.jfif" alt="Restaurant Icon" class="icon">
+            </div>
+        </section>
+
+        <!-- 5. Футер (появляется последним) -->
+        <footer class="footer animate delay-5">
+            <p>Ուրախ կլինենք կիսել այս լուսավոր օրը Ձեզ հետ</p>
+        </footer>
+    </div>
+
+  <script>
+    const musicBtn = document.getElementById('music-toggle');
+    const audio = document.getElementById('bg-music');
+
+    // Функция включения музыки
+    function startAudio() {
+        audio.play().then(() => {
+            musicBtn.textContent = '🔊';
+            // Удаляем слушатели после первого успешного запуска
+            removeInteractionListeners();
+        }).catch(err => {
+            console.log("Autoplay заблокирован браузером до действия пользователя");
+        });
+    }
+
+    // Удаление слушателей
+    function removeInteractionListeners() {
+        document.removeEventListener('click', startAudio);
+        document.removeEventListener('touchstart', startAudio);
+        document.removeEventListener('scroll', startAudio);
+    }
+
+    // Пытаемся запустить сразу (сработает, если браузер разрешит)
+    startAudio();
+
+    // Запуск при любом первом взаимодействии со страницей
+    document.addEventListener('click', startAudio);
+    document.addEventListener('touchstart', startAudio);
+    document.addEventListener('scroll', startAudio);
+
+    // Ручная кнопка переключения (пауза / воспроизведение)
+    musicBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Чтобы событие не перехватывалось кликом по документу
+        if (audio.paused) {
+            audio.play();
+            musicBtn.textContent = '🔊';
+        } else {
+            audio.pause();
+            musicBtn.textContent = '🎵';
+            removeInteractionListeners();
+        }
+    });
+</script>
+</body>
+</html>
