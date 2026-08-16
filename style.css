@@ -118,12 +118,31 @@ body {
     font-size: 13px;
 }
 
+/* Обновленные стили для карточек локаций */
 .card {
     background: #ffffff;
-    padding: 15px;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    overflow: hidden; /* Обрезает все, что выходит за закругленные края */
+    box-sizing: border-box;
+}
+
+/* Все картинки внутри карточек */
+.card img {
+    width: 100%;          /* Картинка подстраивается под ширину карточки */
+    max-width: 100%;
+    height: auto;         /* Сохраняет пропорции */
+    border-radius: 12px;  /* Закругляем углы самой картинке */
+    display: block;
+    margin: 15px auto 0 auto;
+    object-fit: cover;
+}
+
+/* Убираем горизонтальный скролл на мобилках */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
 }
 
 .footer {
@@ -235,10 +254,11 @@ body {
 }
 
 .icon {
-    border-radius: 8px;    
-    width: 90%;
-    height: 60%;
-    margin-top: 5px;
+    width: 100%;
+    height: auto;          /* Автоматическая высота сохраняет пропорции фото */
+    border-radius: 12px;
+    margin-top: 15px;
+    object-fit: cover;     /* Защита от искажения */
 }
 
 .time {
