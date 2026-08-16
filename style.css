@@ -1,11 +1,28 @@
 body {
     margin: 0;
-    padding: 0;
+    padding: 20px 10px;
     font-family: 'Noto Serif Armenian', serif;
-    background-color: #fdfbf7;
     color: #4a4a4a;
     display: flex;
     justify-content: center;
+
+    /* Живой анимированный градиент */
+    background: linear-gradient(-45deg, #fdfbf7, #f7f0e3, #fbf7ef, #f4ecd8);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+/* Анимация переливания фона */
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .container {
